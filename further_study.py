@@ -138,8 +138,9 @@ def custom_pop(input_list):
         ['Jan', 'Feb']
 
     """
-
-    return result = input_list[-1:] # => ["March"] and not "March"
+    last_element = input_list[-1]
+    del input_list[-1]
+    return last_element
 
 
 def custom_index(input_list, value):
@@ -154,8 +155,9 @@ def custom_index(input_list, value):
         1
 
     """
-
-    return 0
+    for index, item in enumerate(input_list):
+            if item == value:
+                return index
 
 
 def custom_count(input_list, value):
@@ -170,8 +172,11 @@ def custom_count(input_list, value):
         2
 
     """
-
-    return 0
+    count = 0
+    for i in input_list:
+        if i == value:
+            count += 1
+    return count
 
 
 def custom_reverse(input_list):
@@ -190,7 +195,7 @@ def custom_reverse(input_list):
 
     """
 
-    pass
+    input_list[:] = input_list[::-1]
 
 
 def custom_contains(input_list, value):
@@ -209,8 +214,12 @@ def custom_contains(input_list, value):
         True
 
     """
+    result = False
+    for i in input_list:
+        if i == value:
+            result = True
 
-    return None
+    return result
 
 
 def custom_equality(some_list, another_list):
@@ -228,8 +237,10 @@ def custom_equality(some_list, another_list):
         False
 
     """
-
-    return None
+    result = False
+    if some_list == another_list:
+        result = True
+    return result
 
 
 ##############################################################################
